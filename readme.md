@@ -1,33 +1,45 @@
-# Modern C – Dynamisches Array (Header + Source getrennt)
+# Modern C – 2D-Partikelsimulation mit dynamischem Array
 
-Dieses Projekt zeigt ein **dynamisches Array in modernem C**, aufgeteilt in Header und Implementation. Ziel ist sauberes, sicheres und wartbares C, kompatibel mit C99/C11.
+Dieses Projekt demonstriert eine einfache 2D-Partikelsimulation in modernem C (C99/C11), umgesetzt mit dynamischen Arrays und ASCII-Grafik im Terminal.
 
 ## Features
 
-- Dynamisch wachsendes `IntArray` (mit `malloc`, `realloc`)
-- Modularer Aufbau: `.h`/`.c`-Trennung
-- `static inline`-Funktion (`square`) im Header
-- Fehlerprüfung bei Speicheroperationen
-- `const`, `size_t`, `NULL`, `-Wall -Wextra` konform
+- Dynamische Speicherung von Partikelpositionen mit `IntArray`
+- 2D-Darstellung im Terminal mit `.` und `*`
+- Zufällige Bewegung in X- und Y-Richtung
+- Verwendung von `nanosleep()` statt `usleep()` für bessere Kompatibilität
+- Saubere Trennung von Header (`int_array.h`) und Implementation (`int_array.c`)
+- Kompilierbar mit `-Wall -Wextra` unter Linux/macOS
+
+## Beispielausgabe
+
+```
+
+..............................
+......*...........*...........
+.............*..............*.
+.........*....................
+..................*.......\*...
+
+````
+
 
 ## Dateien
 
-| Datei         | Beschreibung                          |
-|---------------|----------------------------------------|
-| `int_array.h` | Interface & Inline-Hilfsfunktion       |
-| `int_array.c` | Implementierung des dynamischen Arrays |
-| `main.c`      | Beispielnutzung mit `square(i)`        |
+| Datei         | Zweck                                  |
+|---------------|------------------------------------------|
+| `main.c`      | Partikelsimulation mit ASCII-Rendering   |
+| `int_array.h` | Dynamisches Array (Interface + inline)   |
+| `int_array.c` | Implementation des Arrays                |
+| `Makefile`    | Build-System mit Debug/Release-Zielen    |
 
 ## Kompilierung
 
 ```bash
-gcc -std=c11 -Wall -Wextra -o app main.c int_array.c
+make relase        # Release-Build
+make debug  # Debug-Build mit -g und -O0
+make clean
 ````
-
-## Makefile
-    make release # Release-Build mit -O2
-    make debug   # Debug-Build mit -g und ohne Optimierung
-    make clean   # Aufräumen
 
 ## Ausführung
 
@@ -35,18 +47,15 @@ gcc -std=c11 -Wall -Wextra -o app main.c int_array.c
 ./app
 ```
 
-### Beispielausgabe:
+## Systemvoraussetzungen
 
-```
-Array: 0 1 4 9 16 25 36 49 64 81
-```
+* Linux oder macOS
+* GCC oder Clang
+* Terminal mit ANSI-Sequenzunterstützung (für "clear"-Effekt)
 
-## Funktionen
 
-* `init_array(&arr)` – Initialisiert ein neues Array
-* `push_back(&arr, value)` – Fügt ein Element hinzu (automatisches Realloc)
-* `print_array(&arr)` – Gibt alle Werte aus
-* `free_array(&arr)` – Gibt den Speicher frei
-* `square(x)` – Inline-Funktion im Header
+## Lizenz
+
+MIT
 
 
