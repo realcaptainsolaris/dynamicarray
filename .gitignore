@@ -1,0 +1,31 @@
+# Binärdateien
+*.o
+*.out
+*.a
+*.so
+*.exe
+app
+test_usleep
+
+# Editor-/IDE-Dateien
+*.swp
+*~
+.vscode/
+.idea/
+*.log
+
+# Build-Verzeichnisse
+build/
+dist/
+debug/
+release/
+
+# Mac/Linux/Windows system files
+.DS_Store
+Thumbs.db
+
+# Valgrind logs (optional)
+vgcore.*
+
+# Makefile generierte Dateien (z. B. mit dep tracking)
+*.d
