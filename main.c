@@ -29,10 +29,10 @@
 #include <time.h>
 #include <unistd.h>
 
-#define WIDTH 30
-#define HEIGHT 10
-#define PARTICLES 15
-#define STEPS 100
+const int WIDTH = 30;
+const int HEIGHT = 10;
+const int PARTICLES = 15;
+const int STEPS = 100;
 
 /**
  * Schlafe für eine bestimmte Anzahl Millisekunden.
